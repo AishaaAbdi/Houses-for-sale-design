@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
-class Contact extends StatefulWidget {
-  const Contact({super.key});
+class Contact extends StatelessWidget {
+  final String homename;
+  final String city;
+  final double price;
+  final String img;
+  const Contact({super.key,
+  required this.homename,
+    required this.city,
+    required this.price,
+    required this.img,});
 
-  @override
-  State<Contact> createState() => _ContactState();
-}
-
-class _ContactState extends State<Contact> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,17 +31,17 @@ class _ContactState extends State<Contact> {
             padding: const EdgeInsets.all(8.0),
             child: Card(
               child: ListTile(
-                leading: Image.network("https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg",
+                leading: Image.network("$img",
               ),
-                title: Text("Family Villa",style: TextStyle(fontSize: 22,
+                title: Text("$homename!",style: TextStyle(fontSize: 22,
                 fontWeight: FontWeight.bold),),
                 subtitle: Row(
                   children: [
-                    Text("Mogadishu",style: TextStyle(fontSize: 22,
+                    Text("$city!",style: TextStyle(fontSize: 22,
                       )
                 ),
                 SizedBox(width: 11,),
-                Text("50,000",style: TextStyle(fontSize: 22,
+                Text("$price",style: TextStyle(fontSize: 22,
                ),),
                   ],
                 ),

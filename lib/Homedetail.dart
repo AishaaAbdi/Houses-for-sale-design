@@ -1,14 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:foodorder/contact.dart';
 
-class Homedetail extends StatefulWidget {
-  const Homedetail({super.key});
+class Homedetail extends StatelessWidget {
+  final String homename;
+    final String city;
+  final String img;
 
-  @override
-  State<Homedetail> createState() => _FooddetailState();
-}
+  final double price;
+  final String Bedrooms;
+  final String bathroom;
+  final String square;
+   final String description;
+  const Homedetail({
+    required this.homename,
+       required this.city,
+       required this.price,
+          required this.img,
+          required this.Bedrooms,
+             required this.bathroom,
+                required this.square,
+                 required this.description,
+  });
 
-class _FooddetailState extends State<Homedetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,15 +36,15 @@ class _FooddetailState extends State<Homedetail> {
          title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
            children: [
-             Text("Family Villa",style: TextStyle(
+             Text("$homename",style: TextStyle(
               fontSize: 25,fontWeight: FontWeight.bold
              ),),
              Row(
               // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text("Mogadishu",),
+                Text("$city",),
                 SizedBox(width: 12,),
-                Text("\$50,000",)
+                Text("\$$price",)
               ],
              )
            ],
@@ -44,7 +57,7 @@ class _FooddetailState extends State<Homedetail> {
          
             ClipRRect(
               
-                child: Image.network("https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg",
+                child: Image.network("$img",
                 fit: BoxFit.cover,
                 height: 218,
                 width: double.infinity,
@@ -56,7 +69,7 @@ class _FooddetailState extends State<Homedetail> {
             child: Row(
               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("\$50,000",
+                Text("\$$price",
                         style: TextStyle(fontSize: 25,
                         fontWeight: FontWeight.bold)),
                         SizedBox(width: 15,),
@@ -83,7 +96,7 @@ class _FooddetailState extends State<Homedetail> {
               children: [
                 Icon(Icons.bed,size: 30,),
                 SizedBox(width: 10,),
-                 Text("4 Bedrooms",
+                 Text("$Bedrooms",
                         style: TextStyle(fontSize: 22,
                         )),
               ],
@@ -95,7 +108,7 @@ class _FooddetailState extends State<Homedetail> {
               children: [
                 Icon(Icons.bathroom,size: 30,),
                 SizedBox(width: 10,),
-                 Text("3 Bathrooms",
+                 Text("$bathroom",
                         style: TextStyle(fontSize: 22,
                         )),
               ],
@@ -107,7 +120,7 @@ class _FooddetailState extends State<Homedetail> {
               children: [
                 Icon(Icons.square_foot,size: 30,),
                 SizedBox(width: 10,),
-                 Text("2,500 sq ft",
+                 Text("$square",
                         style: TextStyle(fontSize: 22,
                         )),
               ],
@@ -118,7 +131,7 @@ class _FooddetailState extends State<Homedetail> {
           ),
           Padding(
             padding: const EdgeInsets.all(10.0),
-            child: Text("Beautiful Family Villa with a large garden and swimming pool.",
+            child: Text("$description",
                         style: TextStyle(fontSize: 24,
                         )),
           ),
@@ -132,7 +145,7 @@ class _FooddetailState extends State<Homedetail> {
                     
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.green,
+              backgroundColor: Colors.blue.shade900,
               foregroundColor: Colors.white,
               fixedSize: Size(340, 50)
             ),
